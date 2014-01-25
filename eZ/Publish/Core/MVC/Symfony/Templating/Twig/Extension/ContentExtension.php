@@ -16,7 +16,7 @@ use eZ\Publish\Core\Base\Exceptions\InvalidArgumentType;
 use eZ\Publish\Core\Helper\FieldHelper;
 use eZ\Publish\Core\Helper\TranslationHelper;
 use eZ\Publish\Core\MVC\Symfony\FieldType\View\ParameterProviderRegistryInterface;
-use eZ\Publish\Core\Repository\Values\Content\Content;
+use eZ\Publish\Core\Repository\DomainLogic\Values\Content\Content;
 use eZ\Publish\API\Repository\Values\Content\Field;
 use eZ\Publish\API\Repository\Values\ContentType\FieldDefinition;
 use eZ\Publish\API\Repository\Values\Content\VersionInfo;
@@ -262,7 +262,7 @@ class ContentExtension extends Twig_Extension
     /**
      * Generates the array of parameter to pass to the field template.
      *
-     * @param \eZ\Publish\Core\Repository\Values\Content\Content $content
+     * @param \eZ\Publish\Core\Repository\DomainLogic\Values\Content\Content $content
      * @param \eZ\Publish\API\Repository\Values\Content\Field $field the Field to display
      * @param array $params An array of parameters to pass to the field view
      *
@@ -341,7 +341,7 @@ class ContentExtension extends Twig_Extension
     /**
      * Renders the HTML for a given field.
      *
-     * @param \eZ\Publish\Core\Repository\Values\Content\Content $content
+     * @param \eZ\Publish\Core\Repository\DomainLogic\Values\Content\Content $content
      * @param string $fieldIdentifier Identifier for the field we want to render
      * @param array $params An array of parameters to pass to the field view
      * @throws \InvalidArgumentException If $fieldIdentifier is invalid in $content
@@ -547,7 +547,7 @@ class ContentExtension extends Twig_Extension
     /**
      * Returns expected block name for $field, attached in $content.
      *
-     * @param \eZ\Publish\Core\Repository\Values\Content\Content $content
+     * @param \eZ\Publish\Core\Repository\DomainLogic\Values\Content\Content $content
      * @param \eZ\Publish\API\Repository\Values\Content\Field $field
      *
      * @return string
@@ -572,7 +572,7 @@ class ContentExtension extends Twig_Extension
     /**
      * Returns the field type identifier for $field
      *
-     * @param \eZ\Publish\Core\Repository\Values\Content\Content $content
+     * @param \eZ\Publish\Core\Repository\DomainLogic\Values\Content\Content $content
      * @param \eZ\Publish\API\Repository\Values\Content\Field $field
      *
      * @return string
@@ -617,7 +617,7 @@ class ContentExtension extends Twig_Extension
     }
 
     /**
-     * @param \eZ\Publish\Core\Repository\Values\Content\Content $content
+     * @param \eZ\Publish\Core\Repository\DomainLogic\Values\Content\Content $content
      * @param string $fieldDefIdentifier Identifier for the field we want to get the value from.
      * @param string $forcedLanguage Locale we want the content name translation in (e.g. "fre-FR"). Null by default (takes current locale).
      *
@@ -631,7 +631,7 @@ class ContentExtension extends Twig_Extension
     /**
      * Checks if a given field is considered empty.
      *
-     * @param \eZ\Publish\Core\Repository\Values\Content\Content $content
+     * @param \eZ\Publish\Core\Repository\DomainLogic\Values\Content\Content $content
      * @param string $fieldDefIdentifier Identifier for the field we want to get the value from.
      * @param string $forcedLanguage Locale we want the content name translation in (e.g. "fre-FR"). Null by default (takes current locale).
      *

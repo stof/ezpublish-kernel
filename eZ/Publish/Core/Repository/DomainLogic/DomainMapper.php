@@ -7,17 +7,17 @@
  * @version //autogentag//
  */
 
-namespace eZ\Publish\Core\Repository;
+namespace eZ\Publish\Core\Repository\DomainLogic;
 
 use eZ\Publish\API\Repository\Repository as RepositoryInterface;
 use eZ\Publish\SPI\Persistence\Content\Language\Handler;
 
-use eZ\Publish\Core\Repository\Values\Content\Content;
-use eZ\Publish\Core\Repository\Values\Content\VersionInfo;
+use eZ\Publish\Core\Repository\DomainLogic\Values\Content\Content;
+use eZ\Publish\Core\Repository\DomainLogic\Values\Content\VersionInfo;
 use eZ\Publish\API\Repository\Values\Content\ContentInfo;
 use eZ\Publish\API\Repository\Values\ContentType\ContentType;
 use eZ\Publish\API\Repository\Values\Content\Field;
-use eZ\Publish\Core\Repository\Values\Content\Relation;
+use eZ\Publish\Core\Repository\DomainLogic\Values\Content\Relation;
 use eZ\Publish\API\Repository\Values\Content\Location;
 
 use eZ\Publish\SPI\Persistence\Content as SPIContent;
@@ -68,7 +68,7 @@ class DomainMapper
      * @param \eZ\Publish\SPI\Persistence\Content $spiContent
      * @param \eZ\Publish\API\Repository\Values\ContentType\ContentType $contentType
      *
-     * @return \eZ\Publish\Core\Repository\Values\Content\Content
+     * @return \eZ\Publish\Core\Repository\DomainLogic\Values\Content\Content
      */
     public function buildContentDomainObject( SPIContent $spiContent, $contentType = null )
     {
@@ -103,7 +103,7 @@ class DomainMapper
             $fieldIdentifierMap[$fieldDefinitions->id] = $fieldDefinitions->identifier;
         }
 
-        /** @var \eZ\Publish\Core\Repository\FieldTypeService $fieldTypeService */
+        /** @var \eZ\Publish\Core\Repository\DomainLogic\FieldTypeService $fieldTypeService */
         $fieldTypeService = $this->repository->getFieldTypeService();
 
         $fields = array();
@@ -128,7 +128,7 @@ class DomainMapper
      *
      * @param \eZ\Publish\SPI\Persistence\Content\VersionInfo $spiVersionInfo
      *
-     * @return \eZ\Publish\Core\Repository\Values\Content\VersionInfo
+     * @return \eZ\Publish\Core\Repository\DomainLogic\Values\Content\VersionInfo
      */
     public function buildVersionInfoDomainObject( SPIVersionInfo $spiVersionInfo )
     {
@@ -204,7 +204,7 @@ class DomainMapper
         $sourceFieldDefinitionIdentifier = null;
         if ( $spiRelation->sourceFieldDefinitionId !== null )
         {
-            /** @var \eZ\Publish\Core\Repository\Values\ContentType\ContentType $contentType */
+            /** @var \eZ\Publish\Core\Repository\DomainLogic\Values\ContentType\ContentType $contentType */
             $contentType = $this->repository->getContentTypeService()
                 ->loadContentType( $sourceContentInfo->contentTypeId );
             // Note: getFieldDefinitionById() is not part of API

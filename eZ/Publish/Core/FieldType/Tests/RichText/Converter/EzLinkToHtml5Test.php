@@ -7,7 +7,7 @@
  * @version //autogentag//
  */
 
-namespace eZ\Publish\Core\Repository\Tests\FieldType\RichText\Converter;
+namespace eZ\Publish\Core\Repository\DomainLogic\Tests\FieldType\RichText\Converter;
 
 use eZ\Publish\Core\FieldType\RichText\Converter\EzLinkToHtml5;
 use PHPUnit_Framework_TestCase;
@@ -17,7 +17,7 @@ use eZ\Publish\Core\Base\Exceptions\UnauthorizedException as APIUnauthorizedExce
 /**
  * Tests the EzLinkToHtml5 Preconverter
  * Class EmbedToHtml5Test
- * @package eZ\Publish\Core\Repository\Tests\FieldType\RichText\Converter
+ * @package eZ\Publish\Core\Repository\DomainLogic\Tests\FieldType\RichText\Converter
  */
 class EzLinkToHtml5Test extends PHPUnit_Framework_TestCase
 {
@@ -26,7 +26,7 @@ class EzLinkToHtml5Test extends PHPUnit_Framework_TestCase
      */
     protected function getMockContentService()
     {
-        return $this->getMockBuilder( 'eZ\Publish\Core\Repository\ContentService' )
+        return $this->getMockBuilder( 'eZ\Publish\Core\Repository\DomainLogic\ContentService' )
             ->disableOriginalConstructor()
             ->getMock();
     }
@@ -36,7 +36,7 @@ class EzLinkToHtml5Test extends PHPUnit_Framework_TestCase
      */
     protected function getMockLocationService()
     {
-        return $this->getMockBuilder( 'eZ\Publish\Core\Repository\LocationService' )
+        return $this->getMockBuilder( 'eZ\Publish\Core\Repository\DomainLogic\LocationService' )
             ->disableOriginalConstructor()
             ->getMock();
     }

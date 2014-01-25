@@ -1,16 +1,16 @@
 <?php
 /**
- * File contains: eZ\Publish\Core\Repository\Tests\Service\Mock\SearchTest class
+ * File contains: eZ\Publish\Core\Repository\DomainLogic\Tests\Service\Mock\SearchTest class
  *
  * @copyright Copyright (C) 1999-2014 eZ Systems AS. All rights reserved.
  * @license http://www.gnu.org/licenses/gpl-2.0.txt GNU General Public License v2
  * @version //autogentag//
  */
 
-namespace eZ\Publish\Core\Repository\Tests\Service\Mock;
+namespace eZ\Publish\Core\Repository\DomainLogic\Tests\Service\Mock;
 
-use eZ\Publish\Core\Repository\Tests\Service\Mock\Base as BaseServiceMockTest;
-use eZ\Publish\Core\Repository\SearchService;
+use eZ\Publish\Core\Repository\DomainLogic\Tests\Service\Mock\Base as BaseServiceMockTest;
+use eZ\Publish\Core\Repository\DomainLogic\SearchService;
 use eZ\Publish\API\Repository\Values\Content\Query;
 use eZ\Publish\API\Repository\Values\Content\Query\Criterion;
 use eZ\Publish\API\Repository\Values\Content\Query\SortClause;
@@ -36,7 +36,7 @@ class SearchTest extends BaseServiceMockTest
     /**
      * Test for the __construct() method.
      *
-     * @covers \eZ\Publish\Core\Repository\SearchService::__construct
+     * @covers \eZ\Publish\Core\Repository\DomainLogic\SearchService::__construct
      */
     public function testConstructor()
     {
@@ -89,9 +89,9 @@ class SearchTest extends BaseServiceMockTest
     /**
      * Test for the findContent() method.
      *
-     * @covers \eZ\Publish\Core\Repository\PermissionsCriterionHandler::addPermissionsCriterion
-     * @covers \eZ\Publish\Core\Repository\PermissionsCriterionHandler::getPermissionsCriterion
-     * @covers \eZ\Publish\Core\Repository\SearchService::findContent
+     * @covers \eZ\Publish\Core\Repository\DomainLogic\PermissionsCriterionHandler::addPermissionsCriterion
+     * @covers \eZ\Publish\Core\Repository\DomainLogic\PermissionsCriterionHandler::getPermissionsCriterion
+     * @covers \eZ\Publish\Core\Repository\DomainLogic\SearchService::findContent
      * @expectedException \Exception
      * @expectedExceptionMessage Handler threw an exception
      */
@@ -128,9 +128,9 @@ class SearchTest extends BaseServiceMockTest
     /**
      * Test for the findContent() method.
      *
-     * @covers \eZ\Publish\Core\Repository\PermissionsCriterionHandler::addPermissionsCriterion
-     * @covers \eZ\Publish\Core\Repository\PermissionsCriterionHandler::getPermissionsCriterion
-     * @covers \eZ\Publish\Core\Repository\SearchService::findContent
+     * @covers \eZ\Publish\Core\Repository\DomainLogic\PermissionsCriterionHandler::addPermissionsCriterion
+     * @covers \eZ\Publish\Core\Repository\DomainLogic\PermissionsCriterionHandler::getPermissionsCriterion
+     * @covers \eZ\Publish\Core\Repository\DomainLogic\SearchService::findContent
      */
     public function testFindContentNoPermissionsFilter()
     {
@@ -191,9 +191,9 @@ class SearchTest extends BaseServiceMockTest
     /**
      * Test for the findContent() method.
      *
-     * @covers \eZ\Publish\Core\Repository\PermissionsCriterionHandler::addPermissionsCriterion
-     * @covers \eZ\Publish\Core\Repository\PermissionsCriterionHandler::getPermissionsCriterion
-     * @covers \eZ\Publish\Core\Repository\SearchService::findContent
+     * @covers \eZ\Publish\Core\Repository\DomainLogic\PermissionsCriterionHandler::addPermissionsCriterion
+     * @covers \eZ\Publish\Core\Repository\DomainLogic\PermissionsCriterionHandler::getPermissionsCriterion
+     * @covers \eZ\Publish\Core\Repository\DomainLogic\SearchService::findContent
      */
     public function testFindContentWithPermission()
     {
@@ -260,9 +260,9 @@ class SearchTest extends BaseServiceMockTest
     /**
      * Test for the findContent() method.
      *
-     * @covers \eZ\Publish\Core\Repository\PermissionsCriterionHandler::addPermissionsCriterion
-     * @covers \eZ\Publish\Core\Repository\PermissionsCriterionHandler::getPermissionsCriterion
-     * @covers \eZ\Publish\Core\Repository\SearchService::findContent
+     * @covers \eZ\Publish\Core\Repository\DomainLogic\PermissionsCriterionHandler::addPermissionsCriterion
+     * @covers \eZ\Publish\Core\Repository\DomainLogic\PermissionsCriterionHandler::getPermissionsCriterion
+     * @covers \eZ\Publish\Core\Repository\DomainLogic\SearchService::findContent
      */
     public function testFindContentWithNoPermission()
     {
@@ -476,9 +476,9 @@ class SearchTest extends BaseServiceMockTest
     /**
      * Test for the findSingle() method.
      *
-     * @covers \eZ\Publish\Core\Repository\PermissionsCriterionHandler::addPermissionsCriterion
-     * @covers \eZ\Publish\Core\Repository\PermissionsCriterionHandler::getPermissionsCriterion
-     * @covers \eZ\Publish\Core\Repository\SearchService::findSingle
+     * @covers \eZ\Publish\Core\Repository\DomainLogic\PermissionsCriterionHandler::addPermissionsCriterion
+     * @covers \eZ\Publish\Core\Repository\DomainLogic\PermissionsCriterionHandler::getPermissionsCriterion
+     * @covers \eZ\Publish\Core\Repository\DomainLogic\SearchService::findSingle
      * @expectedException \eZ\Publish\API\Repository\Exceptions\NotFoundException
      */
     public function testFindSingleThrowsNotFoundException()
@@ -506,9 +506,9 @@ class SearchTest extends BaseServiceMockTest
     /**
      * Test for the findSingle() method.
      *
-     * @covers \eZ\Publish\Core\Repository\PermissionsCriterionHandler::addPermissionsCriterion
-     * @covers \eZ\Publish\Core\Repository\PermissionsCriterionHandler::getPermissionsCriterion
-     * @covers \eZ\Publish\Core\Repository\SearchService::findSingle
+     * @covers \eZ\Publish\Core\Repository\DomainLogic\PermissionsCriterionHandler::addPermissionsCriterion
+     * @covers \eZ\Publish\Core\Repository\DomainLogic\PermissionsCriterionHandler::getPermissionsCriterion
+     * @covers \eZ\Publish\Core\Repository\DomainLogic\SearchService::findSingle
      * @expectedException \Exception
      * @expectedExceptionMessage Handler threw an exception
      */
@@ -543,9 +543,9 @@ class SearchTest extends BaseServiceMockTest
     /**
      * Test for the findSingle() method.
      *
-     * @covers \eZ\Publish\Core\Repository\PermissionsCriterionHandler::addPermissionsCriterion
-     * @covers \eZ\Publish\Core\Repository\PermissionsCriterionHandler::getPermissionsCriterion
-     * @covers \eZ\Publish\Core\Repository\SearchService::findSingle
+     * @covers \eZ\Publish\Core\Repository\DomainLogic\PermissionsCriterionHandler::addPermissionsCriterion
+     * @covers \eZ\Publish\Core\Repository\DomainLogic\PermissionsCriterionHandler::getPermissionsCriterion
+     * @covers \eZ\Publish\Core\Repository\DomainLogic\SearchService::findSingle
      */
     public function testFindSingle()
     {
@@ -594,14 +594,14 @@ class SearchTest extends BaseServiceMockTest
     }
 
     /**
-     * @return \PHPUnit_Framework_MockObject_MockObject|\eZ\Publish\Core\Repository\DomainMapper
+     * @return \PHPUnit_Framework_MockObject_MockObject|\eZ\Publish\Core\Repository\DomainLogic\DomainMapper
      */
     protected function getDomainMapperMock()
     {
         if ( !isset( $this->domainMapperMock ) )
         {
             $this->domainMapperMock = $this
-                ->getMockBuilder( "eZ\\Publish\\Core\\Repository\\DomainMapper" )
+                ->getMockBuilder( "eZ\\Publish\\Core\\Repository\\DomainLogic\\DomainMapper" )
                 ->disableOriginalConstructor()
                 ->getMock();
         }
@@ -610,14 +610,14 @@ class SearchTest extends BaseServiceMockTest
     }
 
     /**
-     * @return \PHPUnit_Framework_MockObject_MockObject|\eZ\Publish\Core\Repository\PermissionsCriterionHandler
+     * @return \PHPUnit_Framework_MockObject_MockObject|\eZ\Publish\Core\Repository\DomainLogic\PermissionsCriterionHandler
      */
     protected function getPermissionsCriterionHandlerMock()
     {
         if ( !isset( $this->permissionsCriterionHandlerMock ) )
         {
             $this->permissionsCriterionHandlerMock = $this
-                ->getMockBuilder( "eZ\\Publish\\Core\\Repository\\PermissionsCriterionHandler" )
+                ->getMockBuilder( "eZ\\Publish\\Core\\Repository\\DomainLogic\\PermissionsCriterionHandler" )
                 ->disableOriginalConstructor()
                 ->getMock();
         }
@@ -632,12 +632,12 @@ class SearchTest extends BaseServiceMockTest
      *
      * @param string[] $methods
      *
-     * @return \eZ\Publish\Core\Repository\SearchService|\PHPUnit_Framework_MockObject_MockObject
+     * @return \eZ\Publish\Core\Repository\DomainLogic\SearchService|\PHPUnit_Framework_MockObject_MockObject
      */
     protected function getPartlyMockedSearchService( array $methods = array() )
     {
         return $this->getMock(
-            "eZ\\Publish\\Core\\Repository\\SearchService",
+            "eZ\\Publish\\Core\\Repository\\DomainLogic\\SearchService",
             $methods,
             array(
                 $this->getRepositoryMock(),

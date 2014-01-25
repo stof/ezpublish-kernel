@@ -1,13 +1,13 @@
 <?php
 /**
- * File containing the eZ\Publish\Core\Repository\SearchService class.
+ * File containing the eZ\Publish\Core\Repository\DomainLogic\SearchService class.
  *
  * @copyright Copyright (C) 1999-2014 eZ Systems AS. All rights reserved.
  * @license http://www.gnu.org/licenses/gpl-2.0.txt GNU General Public License v2
  * @version //autogentag//
  */
 
-namespace eZ\Publish\Core\Repository;
+namespace eZ\Publish\Core\Repository\DomainLogic;
 
 use eZ\Publish\API\Repository\SearchService as SearchServiceInterface;
 use eZ\Publish\API\Repository\Values\Content\Query\Criterion;
@@ -22,7 +22,7 @@ use eZ\Publish\SPI\Persistence\Content\Search\Handler;
 /**
  * Search service
  *
- * @package eZ\Publish\Core\Repository
+ * @package eZ\Publish\Core\Repository\DomainLogic
  */
 class SearchService implements SearchServiceInterface
 {
@@ -33,7 +33,7 @@ class SearchService implements SearchServiceInterface
     const MAX_LIMIT = 1073741824;
 
     /**
-     * @var \eZ\Publish\Core\Repository\Repository
+     * @var \eZ\Publish\Core\Repository\DomainLogic\Repository
      */
     protected $repository;
 
@@ -48,12 +48,12 @@ class SearchService implements SearchServiceInterface
     protected $settings;
 
     /**
-     * @var \eZ\Publish\Core\Repository\DomainMapper
+     * @var \eZ\Publish\Core\Repository\DomainLogic\DomainMapper
      */
     protected $domainMapper;
 
     /**
-     * @var \eZ\Publish\Core\Repository\PermissionsCriterionHandler
+     * @var \eZ\Publish\Core\Repository\DomainLogic\PermissionsCriterionHandler
      */
     protected $permissionsCriterionHandler;
 
@@ -62,8 +62,8 @@ class SearchService implements SearchServiceInterface
      *
      * @param \eZ\Publish\API\Repository\Repository $repository
      * @param \eZ\Publish\SPI\Persistence\Content\Search\Handler $searchHandler
-     * @param \eZ\Publish\Core\Repository\DomainMapper $domainMapper
-     * @param \eZ\Publish\Core\Repository\PermissionsCriterionHandler $permissionsCriterionHandler
+     * @param \eZ\Publish\Core\Repository\DomainLogic\DomainMapper $domainMapper
+     * @param \eZ\Publish\Core\Repository\DomainLogic\PermissionsCriterionHandler $permissionsCriterionHandler
      * @param array $settings
      */
     public function __construct(

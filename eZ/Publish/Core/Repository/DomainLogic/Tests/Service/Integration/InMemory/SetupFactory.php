@@ -7,7 +7,7 @@
  * @version //autogentag//
  */
 
-namespace eZ\Publish\Core\Repository\Tests\Service\Integration\InMemory;
+namespace eZ\Publish\Core\Repository\DomainLogic\Tests\Service\Integration\InMemory;
 
 use eZ\Publish\API\Repository\Tests\SetupFactory\Legacy as APILegacySetupFactory;
 use eZ\Publish\Core\Base\ServiceContainer;
