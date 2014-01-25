@@ -7,7 +7,7 @@
  * @version //autogentag//
  */
 
-namespace eZ\Publish\Core\SignalSlot;
+namespace eZ\Publish\Core\Repository\SignalSlot;
 
 use eZ\Publish\API\Repository\SearchService as SearchServiceInterface;
 use eZ\Publish\API\Repository\Values\Content\Query;
@@ -15,7 +15,7 @@ use eZ\Publish\API\Repository\Values\Content\Query\Criterion;
 
 /**
  * SearchService class
- * @package eZ\Publish\Core\SignalSlot
+ * @package eZ\Publish\Core\Repository\SignalSlot
  */
 class SearchService implements SearchServiceInterface
 {
@@ -29,7 +29,7 @@ class SearchService implements SearchServiceInterface
     /**
      * SignalDispatcher
      *
-     * @var \eZ\Publish\Core\SignalSlot\SignalDispatcher
+     * @var \eZ\Publish\Core\Repository\SignalSlot\SignalDispatcher
      */
     protected $signalDispatcher;
 
@@ -40,7 +40,7 @@ class SearchService implements SearchServiceInterface
      * dispatcher
      *
      * @param \eZ\Publish\API\Repository\SearchService $service
-     * @param \eZ\Publish\Core\SignalSlot\SignalDispatcher $signalDispatcher
+     * @param \eZ\Publish\Core\Repository\SignalSlot\SignalDispatcher $signalDispatcher
      */
     public function __construct( SearchServiceInterface $service, SignalDispatcher $signalDispatcher )
     {
