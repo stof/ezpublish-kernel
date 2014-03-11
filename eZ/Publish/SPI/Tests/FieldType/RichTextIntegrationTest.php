@@ -14,7 +14,6 @@ use eZ\Publish\Core\FieldType;
 use eZ\Publish\Core\FieldType\FieldSettings;
 use eZ\Publish\SPI\Persistence\Content\FieldValue;
 use eZ\Publish\SPI\Persistence\Content\FieldTypeConstraints;
-use DOMDocument;
 use eZ\Publish\Core\FieldType\RichText\RichTextStorage\Gateway\LegacyStorage;
 
 /**
@@ -83,17 +82,7 @@ class RichTextIntegrationTest extends BaseIntegrationTest
         );
         $handler->getFieldValueConverterRegistry()->register(
             'ezrichtext',
-            new RichTextConverter(
-                new RichTextConverter\XsltConverter(
-                    $this->getAbsolutePath( "eZ/Publish/Core/Persistence/Legacy/Content/FieldValue/Converter/RichText/Resources/stylesheets/docbook_ezxml.xsl" )
-                ),
-                new RichTextConverter\XsltConverter(
-                    $this->getAbsolutePath( "eZ/Publish/Core/Persistence/Legacy/Content/FieldValue/Converter/RichText/Resources/stylesheets/ezxml_docbook.xsl" )
-                ),
-                new RichTextConverter\XsdValidator(
-                    $this->getAbsolutePath( "eZ/Publish/Core/Persistence/Legacy/Content/FieldValue/Converter/RichText/Resources/schemas/ezxml.xsd" )
-                )
-            )
+            new RichTextConverter()
         );
 
         return $handler;
