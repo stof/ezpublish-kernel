@@ -53,24 +53,17 @@ class SearchService implements SearchServiceInterface
     protected $domainMapper;
 
     /**
-     * @var \eZ\Publish\Core\Repository\DomainLogic\PermissionsCriterionHandler
-     */
-    protected $permissionsCriterionHandler;
-
-    /**
      * Setups service with reference to repository object that created it & corresponding handler
      *
      * @param \eZ\Publish\API\Repository\Repository $repository
      * @param \eZ\Publish\SPI\Persistence\Content\Search\Handler $searchHandler
      * @param \eZ\Publish\Core\Repository\DomainLogic\DomainMapper $domainMapper
-     * @param \eZ\Publish\Core\Repository\DomainLogic\PermissionsCriterionHandler $permissionsCriterionHandler
      * @param array $settings
      */
     public function __construct(
         RepositoryInterface $repository,
         Handler $searchHandler,
         DomainMapper $domainMapper,
-        PermissionsCriterionHandler $permissionsCriterionHandler,
         array $settings = array()
     )
     {
@@ -81,7 +74,6 @@ class SearchService implements SearchServiceInterface
         $this->settings = $settings + array(
             //'defaultSetting' => array(),
         );
-        $this->permissionsCriterionHandler = $permissionsCriterionHandler;
     }
 
     /**
@@ -94,21 +86,15 @@ class SearchService implements SearchServiceInterface
      * @param \eZ\Publish\API\Repository\Values\Content\Query $query
      * @param array $fieldFilters - a map of filters for the returned fields.
      *        Currently supported: <code>array("languages" => array(<language1>,..))</code>.
-     * @param boolean $filterOnUserPermissions if true only the objects which is the user allowed to read are returned.
      *
      * @return \eZ\Publish\API\Repository\Values\Content\Search\SearchResult
      */
-    public function findContent( Query $query, array $fieldFilters = array(), $filterOnUserPermissions = true )
+    public function findContent( Query $query, array $fieldFilters = array() )
     {
         $query = clone $query;
         $query->filter = $query->filter ?: new Criterion\MatchAll();
 
         $this->validateSortClauses( $query );
-
-        if ( $filterOnUserPermissions && !$this->permissionsCriterionHandler->addPermissionsCriterion( $query->filter ) )
-        {
-            return new SearchResult( array( 'time' => 0, 'totalCount' => 0 ) );
-        }
 
         if ( $query->limit === null )
         {
@@ -184,17 +170,11 @@ class SearchService implements SearchServiceInterface
      * @param \eZ\Publish\API\Repository\Values\Content\Query\Criterion $filter
      * @param array $fieldFilters - a map of filters for the returned fields.
      *        Currently supported: <code>array("languages" => array(<language1>,..))</code>.
-     * @param boolean $filterOnUserPermissions if true only the objects which is the user allowed to read are returned.
      *
      * @return \eZ\Publish\API\Repository\Values\Content\Content
      */
-    public function findSingle( Criterion $filter, array $fieldFilters = array(), $filterOnUserPermissions = true )
+    public function findSingle( Criterion $filter, array $fieldFilters = array() )
     {
-        if ( $filterOnUserPermissions && !$this->permissionsCriterionHandler->addPermissionsCriterion( $filter ) )
-        {
-            throw new NotFoundException( 'Content', '*' );
-        }
-
         return $this->domainMapper->buildContentDomainObject(
             $this->searchHandler->findSingle( $filter, $fieldFilters )
         );
